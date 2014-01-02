@@ -1,0 +1,17 @@
+#+REVEAL_ROOT: http://cdn.jsdelivr.net/reveal.js/2.5.0/
+
+* String formatting
+
+#+BEGIN_SRC python :session :exports both
+"My String"
+type(a)
+#+END_SRC
+
+#+BEGIN_SRC python :session :exports both
+"Spam"*10
+#+END_SRC
+
+
+#+BEGIN_SRC python :session :exports both
+"Jason".join(["foo", "fee", "faa"])
+#+END_SRC
