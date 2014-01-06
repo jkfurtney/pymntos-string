@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>(Working with strings in Python)</title>
+<meta name="author" content="(Jason Furtney @jkfurtney)"/>
+<link rel="stylesheet" href="http://cdn.jsdelivr.net/reveal.js/2.5.0/css/reveal.min.css"/>
+<link rel="stylesheet" href="http://cdn.jsdelivr.net/reveal.js/2.5.0/css/theme/default.css" id="theme"/>
+
+<link rel="stylesheet" href="http://cdn.jsdelivr.net/reveal.js/2.5.0/css/print/pdf.css" type="text/css" media="print"/>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section>
+<h1>Working with strings in Python</h1>
+<h2>Jason Furtney @jkfurtney</h2>
+<h2><a href="mailto:jfurtney@UNSER">jfurtney@UNSER</a></h2>
+<h2></h2></section>
+<section>
+<h2>Table of Contents</h2><ul>
+<li>
+<a href="#sec-1">Strings</a>
+</li>
+<li>
+<a href="#sec-2">Basic string operations</a>
+</li>
+<li>
+<a href="#sec-3">In the old days</a>
+<ul>
+<li>
+<a href="#sec-3-1">Terminal IO and line printers</a>
+</li>
+<li>
+<a href="#sec-3-2">Structured Output</a>
+</li>
+</ul>
+<li>
+<a href="#sec-4">Creating strings</a>
+</li>
+</ul>
+</section>
+<section>
+<section id="sec-1" >
+
+<h2><span class="section-number-2">1</span> Strings</h2>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #D8FA3C;">string_1</span> = <span style="color: #61CE3C;">"My first string"</span>
+<span style="color: #D8FA3C;">string_2</span> = <span style="color: #61CE3C;">'Another string'</span>
+
+<span style="color: #FBDE2D;">def</span> <span style="color: #ff1493;">my_function</span>(input_string):
+   <span style="color: #61CE3C;">"""</span>
+<span style="color: #61CE3C;">   This is a multi-line docstring which describes what this functions does.</span>
+<span style="color: #61CE3C;">   Return an upper case copy of the input string.</span>
+<span style="color: #61CE3C;">   """</span>
+   <span style="color: #FBDE2D;">return</span> input_string.upper()
+
+my_function(string_1)
+</pre>
+</div>
+
+<pre class="example">
+MY FIRST STRING
+</pre>
+</section>
+</section>
+<section>
+<section id="sec-2" >
+
+<h2><span class="section-number-2">2</span> Basic string operations</h2>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #61CE3C;">"Spam "</span> + <span style="color: #61CE3C;">"eggs"</span>
+</pre>
+</div>
+
+<pre class="example">
+Spam eggs
+</pre>
+
+</section>
+<section>
+
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #61CE3C;">"Spam "</span>*10
+</pre>
+</div>
+
+<pre class="example">
+Spam Spam Spam Spam Spam Spam Spam Spam Spam Spam
+</pre>
+
+</section>
+<section>
+
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #D8FA3C;">the_great_gatsby</span> =  <span style="color: #61CE3C;">"A cautionary tale of the decadent downside of the American dream."</span>
+
+<span style="color: #D8FA3C;">book_text</span> = <span style="color: #61CE3C;">"""</span>
+<span style="color: #61CE3C;">In my younger and more vulnerable years my father gave me some advice</span>
+<span style="color: #61CE3C;">that I've been turning over in my mind ever since. "Whenever you feel</span>
+<span style="color: #61CE3C;">like criticizing any one", he told me, "just remember that all the</span>
+<span style="color: #61CE3C;">people in this world haven't had the advantages that you've had."</span>
+<span style="color: #61CE3C;">"""</span>
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #61CE3C;">", "</span>.join([<span style="color: #61CE3C;">"one"</span>, <span style="color: #61CE3C;">"two"</span>, <span style="color: #61CE3C;">"three"</span>])
+</pre>
+</div>
+
+<pre class="example">
+one, two, three
+</pre>
+</section>
+</section>
+<section>
+<section id="sec-3"  data-background="./dumb_terminal.gif" data-background-transition="slide">
+
+<h2><span class="section-number-2">3</span> In the old days</h2>
+
+</section>
+<section id="sec-3-1"  data-background="./paper_tape_reader.gif">
+
+<h3><span class="section-number-3">3.1</span> Terminal IO and line printers</h3>
+</section>
+<section id="sec-3-2" >
+
+<h3><span class="section-number-3">3.2</span> Structured Output</h3>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #D8FA3C;">a</span> = <span style="color: #61CE3C;">"b"</span>
+</pre>
+</div>
+</section>
+
+</section>
+<section>
+<section id="sec-4" >
+
+<h2><span class="section-number-2">4</span> Creating strings</h2>
+<p>
+Creating strings:
+literal syntax
++, *, join,
+</p>
+
+<p>
+beginswith()
+endswith()
+</p>
+
+<p>
+Structured output:
+%, the interpolation operator
+format
+templates
+</p>
+
+<p>
+json
+xml
+</p>
+
+<p>
+Breaking string apart:
+</p>
+
+<p>
+indexing and slicing.
+the split method.
+partition
+</p>
+
+<p>
+More advanced topics:
+</p>
+
+<ul class="org-ul">
+<li>raw strings
+</li>
+<li>unicode, Python 2 vs Python 3
+</li>
+</ul>
+
+
+
+<p>
+clformat
+</p>
+
+<p>
+string object methods, string module
+</p>
+
+<p>
+Python strings are immutable, like tuples:
+</p>
+
+<ul class="org-ul">
+<li>Performance, objects can be reused
+</li>
+<li>Use as dictonary keys
+</li>
+<li>Safety, easier multi-treading
+</li>
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="http://cdn.jsdelivr.net/reveal.js/2.5.0/lib/js/head.min.js"></script>
+<script src="http://cdn.jsdelivr.net/reveal.js/2.5.0/js/reveal.min.js"></script>
+<script>
+
+                        // Full list of configuration options available here:
+                        // https://github.com/hakimel/reveal.js#configuration
+                        Reveal.initialize({
+                                controls: true,
+                                progress: true,
+                                history: false,
+                                center: true,
+                                rollingLinks: false,
+                                keyboard: true,
+                                overview: true,
+                                 // slide width
+                                 // slide height
+                                 // slide margin
+                                 // slide minimum scaling factor
+                                 // slide maximum scaling factor
+
+
+                                theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+                                transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+                                transitionSpeed: 'default',
+
+                                // Optional libraries used to extend on reveal.js
+                                dependencies: [
+                                        { src: 'http://cdn.jsdelivr.net/reveal.js/2.5.0/lib/js/classList.js', condition: function() { return !document.body.classList; } }
+                                        ,{ src: 'http://cdn.jsdelivr.net/reveal.js/2.5.0/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } }
+                                        ,{ src: 'http://cdn.jsdelivr.net/reveal.js/2.5.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } }
+                                        ,{ src: 'http://cdn.jsdelivr.net/reveal.js/2.5.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+                                        ,{ src: 'http://cdn.jsdelivr.net/reveal.js/2.5.0/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }
+                                        ,{ src: 'http://cdn.jsdelivr.net/reveal.js/2.5.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                                        // { src: 'http://cdn.jsdelivr.net/reveal.js/2.5.0/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+                                        // { src: 'http://cdn.jsdelivr.net/reveal.js/2.5.0/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+
+                                ]
+                        });
+</script>
+</body>
+</html>
