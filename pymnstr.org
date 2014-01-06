@@ -1,17 +1,95 @@
 #+REVEAL_ROOT: http://cdn.jsdelivr.net/reveal.js/2.5.0/
 
-* String formatting
+* Strings
 
 #+BEGIN_SRC python :session :exports both
-"My String"
-type(a)
+string_1 = "My first string"
+string_2 = 'Another string'
+def my_function(input_string):
+   """
+   This is a multi-line docstring which describes what this functions does.
+   Return an upper case copy of the input string.
+   """
+   return input_string.upper()
+my_function(string_1)
 #+END_SRC
+
+* Basic string operations
 
 #+BEGIN_SRC python :session :exports both
-"Spam"*10
+"Spam "*10
 #+END_SRC
 
+#+RESULTS:
+: Spam Spam Spam Spam Spam Spam Spam Spam Spam Spam
+
+#+REVEAL: split
 
 #+BEGIN_SRC python :session :exports both
-"Jason".join(["foo", "fee", "faa"])
+", ".join(["one", "two", "three"])
 #+END_SRC
+
+
+
+* In the old days
+   :PROPERTIES:
+   :reveal_background: ./dumb_terminal.gif
+   :reveal_background_trans: slide
+   :END:
+
+** Terminal IO and line printers
+   :PROPERTIES:
+   :reveal_background: ./paper_tape_reader.gif
+   :reveal_background_trans: slide
+   :END:
+
+
+
+* Creating strings
+
+
+
+Creating strings:
+literal syntax
++, *, join,
+
+beginswith()
+endswith()
+
+Structured output:
+%, the interpolation operator
+format
+templates
+
+json
+xml
+
+Breaking string apart:
+
+indexing and slicing.
+the split method.
+partition
+
+More advanced topics:
+
+- raw strings
+- unicode, Python 2 vs Python 3
+
+
+
+
+
+
+
+
+
+
+clformat
+
+string object methods, string module
+
+Python strings are immutable, like tuples:
+
+- Performance, objects can be reused
+- Use as dictonary keys
+- Safety, easier multi-treading
