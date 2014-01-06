@@ -1,35 +1,52 @@
 #+REVEAL_ROOT: http://cdn.jsdelivr.net/reveal.js/2.5.0/
-
+#+TITLE: Python Strings
+#+AUTHOR: Jason Furtney @jkfurtney
 * Strings
 
 #+BEGIN_SRC python :session :exports both
 string_1 = "My first string"
 string_2 = 'Another string'
+
 def my_function(input_string):
    """
    This is a multi-line docstring which describes what this functions does.
    Return an upper case copy of the input string.
    """
    return input_string.upper()
+
 my_function(string_1)
 #+END_SRC
 
 * Basic string operations
 
 #+BEGIN_SRC python :session :exports both
-"Spam "*10
+"Spam " + "eggs"
 #+END_SRC
-
-#+RESULTS:
-: Spam Spam Spam Spam Spam Spam Spam Spam Spam Spam
 
 #+REVEAL: split
 
 #+BEGIN_SRC python :session :exports both
-", ".join(["one", "two", "three"])
+"Spam "*10
 #+END_SRC
 
+#+REVEAL: split
 
+#+BEGIN_SRC python :session :exports both
+the_great_gatsby =  "A cautionary tale of the decadent downside of the American dream."
+
+book_text = """
+In my younger and more vulnerable years my father gave me some advice
+that I've been turning over in my mind ever since. "Whenever you feel
+like criticizing any one", he told me, "just remember that all the
+people in this world haven't had the advantages that you've had."
+"""
+
+
+#+END_SRC
+
+#+BEGIN_SRC python :session :exports both
+", ".join(["one", "two", "three"])
+#+END_SRC
 
 * In the old days
    :PROPERTIES:
@@ -40,14 +57,16 @@ my_function(string_1)
 ** Terminal IO and line printers
    :PROPERTIES:
    :reveal_background: ./paper_tape_reader.gif
-   :reveal_background_trans: slide
    :END:
 
+** Structured Output
+
+#+BEGIN_SRC python :session :exports both
+a = "b"
+#+END_SRC
 
 
 * Creating strings
-
-
 
 Creating strings:
 literal syntax
@@ -74,13 +93,6 @@ More advanced topics:
 
 - raw strings
 - unicode, Python 2 vs Python 3
-
-
-
-
-
-
-
 
 
 
