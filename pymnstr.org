@@ -1,6 +1,8 @@
 #+REVEAL_ROOT: http://cdn.jsdelivr.net/reveal.js/2.5.0/
 #+TITLE: Python Strings
-#+AUTHOR: Jason Furtney @jkfurtney
+#+AUTHOR: Jason Furtney
+#+EMAIL: @jkfurtney
+#+OPTIONS: toc:nil num:nil
 * Strings
 
 #+BEGIN_SRC python :session :exports both
@@ -32,8 +34,25 @@ my_function(string_1)
 #+REVEAL: split
 
 #+BEGIN_SRC python :session :exports both
-the_great_gatsby =  "A cautionary tale of the decadent downside of the American dream."
+", ".join(["one", "two", "three"])
+#+END_SRC
 
+#+REVEAL: split
+
+#+BEGIN_SRC python :session :exports both
+str(42) == int("42")
+#+END_SRC
+
+#+REVEAL: split
+** searching strings
+#+BEGIN_SRC python :session :exports both
+great_gatsby =  "A cautionary tale of the decadent downside of the American dream."
+print "of" in great_gatsby
+print great_gatsby.find("tale")
+print great_gatsby.find("Python")
+#+END_SRC
+
+#+BEGIN_SRC python :session :exports both
 book_text = """
 In my younger and more vulnerable years my father gave me some advice
 that I've been turning over in my mind ever since. "Whenever you feel
@@ -44,27 +63,33 @@ people in this world haven't had the advantages that you've had."
 
 #+END_SRC
 
-#+BEGIN_SRC python :session :exports both
-", ".join(["one", "two", "three"])
-#+END_SRC
-
 * In the old days
    :PROPERTIES:
    :reveal_background: ./dumb_terminal.gif
    :reveal_background_trans: slide
    :END:
 
-** Terminal IO and line printers
+** .
    :PROPERTIES:
    :reveal_background: ./paper_tape_reader.gif
    :END:
 
 ** Structured Output
 
+String interpolation with %
 #+BEGIN_SRC python :session :exports both
-a = "b"
+"%s and %s" % ("Spam", "eggs")
 #+END_SRC
 
+The string .format() method
+#+BEGIN_SRC python :session :exports both
+"{} and {}".format("Spam", "eggs")
+#+END_SRC
+
+The .format() method is new (Python 2.6+) and is generally better. It
+is extensible.
+
+#+REVEAL: split
 
 * Creating strings
 
@@ -93,8 +118,6 @@ More advanced topics:
 
 - raw strings
 - unicode, Python 2 vs Python 3
-
-
 
 clformat
 
