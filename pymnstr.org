@@ -5,63 +5,132 @@
 #+OPTIONS: toc:nil num:nil
 * Strings
 
-#+BEGIN_SRC python :session :exports both
+#+BEGIN_SRC python :session :exports both :results pp
 string_1 = "My first string"
+
 string_2 = 'Another string'
 
-def my_function(input_string):
-   """
-   This is a multi-line docstring which describes what this functions does.
-   Return an upper case copy of the input string.
-   """
-   return input_string.upper()
-
-my_function(string_1)
+string_3 = """
+This is a multi-line string literal. Often these triple quites are
+used for docstrings.
+"""
 #+END_SRC
 
 * Basic string operations
 
-#+BEGIN_SRC python :session :exports both
+#+BEGIN_SRC python :session :exports both :results pp
 "Spam " + "eggs"
 #+END_SRC
 
 #+REVEAL: split
 
-#+BEGIN_SRC python :session :exports both
-"Spam "*10
+#+BEGIN_SRC python :session :exports both :results pp
+"Spam " * 10
+#+END_SRC
+
+#+REVEAL: split
+Converting objects to strings
+#+BEGIN_SRC python :session :exports both :results pp
+str(42) == "42"
+#+END_SRC
+and strings to objects
+#+BEGIN_SRC python :session :exports both :results pp
+int("42") == 42
+#+END_SRC
+
+#+REVEAL: split
+Iteration
+#+BEGIN_SRC python :session :exports both :results output pp
+for char in "pymntos":
+    print char
+
 #+END_SRC
 
 #+REVEAL: split
 
-#+BEGIN_SRC python :session :exports both
+Slicing
+#+BEGIN_SRC python :session :exports both :results pp
+book_description =  "A cautionary tale of the decadent downside of the American dream."
+book_description[2:12]
+#+END_SRC
+
+#+REVEAL: split
+#+BEGIN_SRC python :session :exports both :results output pp
+book_description =  "A cautionary tale of the decadent downside of the American dream."
+book_description[2:12] = "silly"
+#+END_SRC
+
+
+Python strings are immutable for performance and safety. Most string
+methods and functions return a new string object.
+
+#+REVEAL: split
+#+BEGIN_SRC python :session :exports both :results output pp
+book_description =  "A cautionary tale of the decadent downside of the American dream."
+print book_description.replace("cautionary", "silly")
+print book_description
+#+END_SRC
+
+The original string is unchanged.
+#+REVEAL: split
+#+BEGIN_SRC python :session :exports both :results output pp
+print book_description.upper()
+print book_description.title()
+print book_description.swapcase()
+print book_description
+#+END_SRC
+
+#+REVEAL: split
+#+BEGIN_SRC python :session :exports both :results pp
 ", ".join(["one", "two", "three"])
 #+END_SRC
 
 #+REVEAL: split
+#+BEGIN_SRC python :session :exports both :results pp
+"one,two,three".split(",")
+#+END_SRC
 
-#+BEGIN_SRC python :session :exports both
-str(42) == int("42")
+** Code golf
+
+Produce the number 2014 without any numbers in your source code
+
+- from http://codegolf.stackexchange.com/questions/17005/produce-the-number-2014-without-any-numbers-in-your-source-code
+- the Python entry won the internet.
+#+BEGIN_SRC python :session :exports both :results output pp
+sum(ord(c) for c in 'Happy new year to you!')
+#+END_SRC
+
+- see also chr() which is the inverse of ord().
+- this is ascii specific.
+
+** Searching strings
+#+BEGIN_SRC python :session :exports both :results pp
+book_description =  "A cautionary tale of the decadent downside of the American dream."
+
+(
+  book_description.startswith ("A"),
+  book_description.endswith ("dream."),
+  "of" in book_description,
+  book_description.find ("tale"),
+  book_description.find ("Python")
+)
 #+END_SRC
 
 #+REVEAL: split
-** searching strings
-#+BEGIN_SRC python :session :exports both
-great_gatsby =  "A cautionary tale of the decadent downside of the American dream."
-print "of" in great_gatsby
-print great_gatsby.find("tale")
-print great_gatsby.find("Python")
-#+END_SRC
-
-#+BEGIN_SRC python :session :exports both
+#+BEGIN_SRC python :session :exports both :results pp
 book_text = """
 In my younger and more vulnerable years my father gave me some advice
 that I've been turning over in my mind ever since. "Whenever you feel
 like criticizing any one", he told me, "just remember that all the
 people in this world haven't had the advantages that you've had."
-"""
-
-
+""" #  The first sentence of The Great Gatsby
+book_text.count("my")
 #+END_SRC
+
+** Regular expressions
+
+
+
 
 * In the old days
    :PROPERTIES:
@@ -77,19 +146,46 @@ people in this world haven't had the advantages that you've had."
 ** Structured Output
 
 String interpolation with %
-#+BEGIN_SRC python :session :exports both
+#+BEGIN_SRC python :session :exports both :results pp
 "%s and %s" % ("Spam", "eggs")
 #+END_SRC
 
 The string .format() method
-#+BEGIN_SRC python :session :exports both
+#+BEGIN_SRC python :session :exports both :results pp
 "{} and {}".format("Spam", "eggs")
 #+END_SRC
 
-The .format() method is new (Python 2.6+) and is generally better. It
+The .format() method is new (Python 2.6+) and generally preferred. It
 is extensible.
 
 #+REVEAL: split
+
+Python port of the Common Lisp FORMAT function.
+
+#+BEGIN_SRC python :session :exports both :results output pp
+from clformat import clformat
+
+clformat("There is a ~a in my string.", "foo")
+
+clformat("~r cat~:p", 10)
+
+clformat("~{~a~^-~}", range(8))
+
+import time
+clformat("The year is ~@r", time.localtime().tm_year)
+#+END_SRC
+
+- https://github.com/jkfurtney/clformat
+- Python port of FORTRAN's format statement: https://pypi.python.org/pypi/fortranformat
+
+#+REVEAL: split
+
+Templating libraries
+
+#+BEGIN_SRC python :session :exports both :results output pp
+
+#+END_SRC
+
 
 * Creating strings
 
@@ -97,8 +193,6 @@ Creating strings:
 literal syntax
 +, *, join,
 
-beginswith()
-endswith()
 
 Structured output:
 %, the interpolation operator
