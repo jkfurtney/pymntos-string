@@ -3,8 +3,8 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<title>(Working with strings in Python)</title>
-<meta name="author" content="(Jason Furtney @jkfurtney)"/>
+<title>(Python Strings)</title>
+<meta name="author" content="(Jason Furtney)"/>
 <link rel="stylesheet" href="http://cdn.jsdelivr.net/reveal.js/2.5.0/css/reveal.min.css"/>
 <link rel="stylesheet" href="http://cdn.jsdelivr.net/reveal.js/2.5.0/css/theme/default.css" id="theme"/>
 
@@ -14,62 +14,36 @@
 <div class="reveal">
 <div class="slides">
 <section>
-<h1>Working with strings in Python</h1>
-<h2>Jason Furtney @jkfurtney</h2>
-<h2><a href="mailto:jfurtney@UNSER">jfurtney@UNSER</a></h2>
+<h1>Python Strings</h1>
+<h2>Jason Furtney</h2>
+<h2><a href="mailto:@jkfurtney">@jkfurtney</a></h2>
 <h2></h2></section>
-<section>
-<h2>Table of Contents</h2><ul>
-<li>
-<a href="#sec-1">Strings</a>
-</li>
-<li>
-<a href="#sec-2">Basic string operations</a>
-</li>
-<li>
-<a href="#sec-3">In the old days</a>
-<ul>
-<li>
-<a href="#sec-3-1">Terminal IO and line printers</a>
-</li>
-<li>
-<a href="#sec-3-2">Structured Output</a>
-</li>
-</ul>
-<li>
-<a href="#sec-4">Creating strings</a>
-</li>
-</ul>
-</section>
 <section>
 <section id="sec-1" >
 
-<h2><span class="section-number-2">1</span> Strings</h2>
+<h2>Strings</h2>
 <div class="org-src-container">
 
 <pre class="src src-python"><span style="color: #D8FA3C;">string_1</span> = <span style="color: #61CE3C;">"My first string"</span>
+
 <span style="color: #D8FA3C;">string_2</span> = <span style="color: #61CE3C;">'Another string'</span>
 
-<span style="color: #FBDE2D;">def</span> <span style="color: #ff1493;">my_function</span>(input_string):
-   <span style="color: #61CE3C;">"""</span>
-<span style="color: #61CE3C;">   This is a multi-line docstring which describes what this functions does.</span>
-<span style="color: #61CE3C;">   Return an upper case copy of the input string.</span>
-<span style="color: #61CE3C;">   """</span>
-   <span style="color: #FBDE2D;">return</span> input_string.upper()
-
-my_function(string_1)
+<span style="color: #D8FA3C;">string_3</span> = <span style="color: #61CE3C;">"""</span>
+<span style="color: #61CE3C;">This is a multi-line string literal. Often these triple quites are</span>
+<span style="color: #61CE3C;">used for docstrings.</span>
+<span style="color: #61CE3C;">"""</span>
 </pre>
 </div>
 
 <pre class="example">
-MY FIRST STRING
+'org_babel_python_eoe'
 </pre>
 </section>
 </section>
 <section>
 <section id="sec-2" >
 
-<h2><span class="section-number-2">2</span> Basic string operations</h2>
+<h2>Basic string operations</h2>
 <div class="org-src-container">
 
 <pre class="src src-python"><span style="color: #61CE3C;">"Spam "</span> + <span style="color: #61CE3C;">"eggs"</span>
@@ -77,7 +51,7 @@ MY FIRST STRING
 </div>
 
 <pre class="example">
-Spam eggs
+'Spam eggs'
 </pre>
 
 </section>
@@ -85,30 +59,140 @@ Spam eggs
 
 <div class="org-src-container">
 
-<pre class="src src-python"><span style="color: #61CE3C;">"Spam "</span>*10
+<pre class="src src-python"><span style="color: #61CE3C;">"Spam "</span> * 10
 </pre>
 </div>
 
 <pre class="example">
-Spam Spam Spam Spam Spam Spam Spam Spam Spam Spam
+'Spam Spam Spam Spam Spam Spam Spam Spam Spam Spam '
+</pre>
+
+</section>
+<section>
+<p>
+Converting objects to strings
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FF6400;">str</span>(42) == <span style="color: #61CE3C;">"42"</span>
+</pre>
+</div>
+
+<pre class="example">
+True
+</pre>
+
+<p>
+and strings to objects
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FF6400;">int</span>(<span style="color: #61CE3C;">"42"</span>) == 42
+</pre>
+</div>
+
+<pre class="example">
+True
+</pre>
+
+</section>
+<section>
+<p>
+Iteration
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FBDE2D;">for</span> char <span style="color: #FBDE2D;">in</span> <span style="color: #61CE3C;">"pymntos"</span>:
+    <span style="color: #FBDE2D;">print</span> char
+</pre>
+</div>
+
+<pre class="example">
+... p
+y
+m
+n
+t
+o
+s
 </pre>
 
 </section>
 <section>
 
+<p>
+Slicing
+</p>
 <div class="org-src-container">
 
-<pre class="src src-python"><span style="color: #D8FA3C;">the_great_gatsby</span> =  <span style="color: #61CE3C;">"A cautionary tale of the decadent downside of the American dream."</span>
-
-<span style="color: #D8FA3C;">book_text</span> = <span style="color: #61CE3C;">"""</span>
-<span style="color: #61CE3C;">In my younger and more vulnerable years my father gave me some advice</span>
-<span style="color: #61CE3C;">that I've been turning over in my mind ever since. "Whenever you feel</span>
-<span style="color: #61CE3C;">like criticizing any one", he told me, "just remember that all the</span>
-<span style="color: #61CE3C;">people in this world haven't had the advantages that you've had."</span>
-<span style="color: #61CE3C;">"""</span>
+<pre class="src src-python"><span style="color: #D8FA3C;">book_description</span> =  <span style="color: #61CE3C;">"A cautionary tale of the decadent downside of the American dream."</span>
+book_description[2:12]
 </pre>
 </div>
 
+<pre class="example">
+'cautionary'
+</pre>
+
+</section>
+<section>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #D8FA3C;">book_description</span> =  <span style="color: #61CE3C;">"A cautionary tale of the decadent downside of the American dream."</span>
+<span style="color: #D8FA3C;">book_description</span>[2:12] = <span style="color: #61CE3C;">"silly"</span>
+</pre>
+</div>
+
+<pre class="example">
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+TypeError: 'str' object does not support item assignment
+</pre>
+
+
+<p>
+Python strings are immutable for performance and safety. Most string
+methods and functions return a new string object.
+</p>
+
+</section>
+<section>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #D8FA3C;">book_description</span> =  <span style="color: #61CE3C;">"A cautionary tale of the decadent downside of the American dream."</span>
+<span style="color: #FBDE2D;">print</span> book_description.replace(<span style="color: #61CE3C;">"cautionary"</span>, <span style="color: #61CE3C;">"silly"</span>)
+<span style="color: #FBDE2D;">print</span> book_description
+</pre>
+</div>
+
+<pre class="example">
+A silly tale of the decadent downside of the American dream.
+A cautionary tale of the decadent downside of the American dream.
+</pre>
+
+<p>
+The original string is unchanged.
+</p>
+</section>
+<section>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FBDE2D;">print</span> book_description.upper()
+<span style="color: #FBDE2D;">print</span> book_description.title()
+<span style="color: #FBDE2D;">print</span> book_description.swapcase()
+<span style="color: #FBDE2D;">print</span> book_description
+</pre>
+</div>
+
+<pre class="example">
+A CAUTIONARY TALE OF THE DECADENT DOWNSIDE OF THE AMERICAN DREAM.
+A Cautionary Tale Of The Decadent Downside Of The American Dream.
+a CAUTIONARY TALE OF THE DECADENT DOWNSIDE OF THE aMERICAN DREAM.
+A cautionary tale of the decadent downside of the American dream.
+</pre>
+
+</section>
+<section>
 <div class="org-src-container">
 
 <pre class="src src-python"><span style="color: #61CE3C;">", "</span>.join([<span style="color: #61CE3C;">"one"</span>, <span style="color: #61CE3C;">"two"</span>, <span style="color: #61CE3C;">"three"</span>])
@@ -116,27 +200,200 @@ Spam Spam Spam Spam Spam Spam Spam Spam Spam Spam
 </div>
 
 <pre class="example">
-one, two, three
+'one, two, three'
+</pre>
+
+</section>
+<section>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #61CE3C;">"one,two,three"</span>.split(<span style="color: #61CE3C;">","</span>)
+</pre>
+</div>
+
+<pre class="example">
+['one', 'two', 'three']
+</pre>
+
+</section>
+<section id="sec-2-1" >
+
+<h3>Code golf</h3>
+<p>
+Produce the number 2014 without any numbers in your source code
+</p>
+
+<ul class="org-ul">
+<li>from <a href="http://codegolf.stackexchange.com/questions/17005/produce-the-number-2014-without-any-numbers-in-your-source-code">http://codegolf.stackexchange.com/questions/17005/produce-the-number-2014-without-any-numbers-in-your-source-code</a>
+</li>
+<li>the Python entry won the internet.
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FF6400;">sum</span>(<span style="color: #FF6400;">ord</span>(c) <span style="color: #FBDE2D;">for</span> c <span style="color: #FBDE2D;">in</span> <span style="color: #61CE3C;">'Happy new year to you!'</span>)
+</pre>
+</div>
+
+<pre class="example">
+2014
+</pre>
+
+<ul class="org-ul">
+<li>see also chr() which is the inverse of ord().
+</li>
+<li>this is ascii specific.
+</li>
+</ul>
+</section>
+<section id="sec-2-2" >
+
+<h3>Searching strings</h3>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #D8FA3C;">book_description</span> =  <span style="color: #61CE3C;">"A cautionary tale of the decadent downside of the American dream."</span>
+
+(
+  book_description.startswith (<span style="color: #61CE3C;">"A"</span>),
+  book_description.endswith (<span style="color: #61CE3C;">"dream."</span>),
+  <span style="color: #61CE3C;">"of"</span> <span style="color: #FBDE2D;">in</span> book_description,
+  book_description.find (<span style="color: #61CE3C;">"tale"</span>),
+  book_description.find (<span style="color: #61CE3C;">"Python"</span>)
+)
+</pre>
+</div>
+
+<pre class="example">
+(True, True, True, 13, -1)
+</pre>
+
+</section>
+<section>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #D8FA3C;">book_text</span> = <span style="color: #61CE3C;">"""</span>
+<span style="color: #61CE3C;">In my younger and more vulnerable years my father gave me some advice</span>
+<span style="color: #61CE3C;">that I've been turning over in my mind ever since. "Whenever you feel</span>
+<span style="color: #61CE3C;">like criticizing any one", he told me, "just remember that all the</span>
+<span style="color: #61CE3C;">people in this world haven't had the advantages that you've had."</span>
+<span style="color: #61CE3C;">"""</span> <span style="color: #8B8989; font-style: italic;">#  </span><span style="color: #8B8989; font-style: italic;">The first sentence of The Great Gatsby</span>
+book_text.count(<span style="color: #61CE3C;">"my"</span>)
+</pre>
+</div>
+
+<pre class="example">
+3
 </pre>
 </section>
+<section id="sec-2-3" >
+
+<h3>Regular expressions</h3>
+</section>
+
+
+
 </section>
 <section>
 <section id="sec-3"  data-background="./dumb_terminal.gif" data-background-transition="slide">
 
-<h2><span class="section-number-2">3</span> In the old days</h2>
+<h2>In the old days</h2>
 
 </section>
 <section id="sec-3-1"  data-background="./paper_tape_reader.gif">
 
-<h3><span class="section-number-3">3.1</span> Terminal IO and line printers</h3>
+<h3>.</h3>
 </section>
 <section id="sec-3-2" >
 
-<h3><span class="section-number-3">3.2</span> Structured Output</h3>
+<h3>Structured Output</h3>
+<p>
+String interpolation with %
+</p>
 <div class="org-src-container">
 
-<pre class="src src-python"><span style="color: #D8FA3C;">a</span> = <span style="color: #61CE3C;">"b"</span>
+<pre class="src src-python"><span style="color: #61CE3C;">"%s and %s"</span> % (<span style="color: #61CE3C;">"Spam"</span>, <span style="color: #61CE3C;">"eggs"</span>)
 </pre>
+</div>
+
+<pre class="example">
+'Spam and eggs'
+</pre>
+
+<p>
+The string .format() method
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #61CE3C;">"{} and {}"</span>.<span style="color: #FF6400;">format</span>(<span style="color: #61CE3C;">"Spam"</span>, <span style="color: #61CE3C;">"eggs"</span>)
+</pre>
+</div>
+
+<pre class="example">
+'Spam and eggs'
+</pre>
+
+<p>
+The .format() method is new (Python 2.6+) and generally preferred. It
+is extensible.
+</p>
+
+</section>
+<section>
+
+<p>
+Python port of the Common Lisp FORMAT function.
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FBDE2D;">from</span> clformat <span style="color: #FBDE2D;">import</span> clformat
+
+clformat(<span style="color: #61CE3C;">"There is a ~a in my string."</span>, <span style="color: #61CE3C;">"foo"</span>)
+
+clformat(<span style="color: #61CE3C;">"~r cat~:p"</span>, 10)
+
+clformat(<span style="color: #61CE3C;">"~{~a~^-~}"</span>, <span style="color: #FF6400;">range</span>(8))
+
+<span style="color: #FBDE2D;">import</span> time
+clformat(<span style="color: #61CE3C;">"The year is ~@r"</span>, time.localtime().tm_year)
+</pre>
+</div>
+
+<pre class="example">
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+ImportError: No module named clformat
+&gt;&gt;&gt; Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+NameError: name 'clformat' is not defined
+&gt;&gt;&gt; Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+NameError: name 'clformat' is not defined
+&gt;&gt;&gt; Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+NameError: name 'clformat' is not defined
+&gt;&gt;&gt; &gt;&gt;&gt; Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+NameError: name 'clformat' is not defined
+</pre>
+
+<ul class="org-ul">
+<li><a href="https://github.com/jkfurtney/clformat">https://github.com/jkfurtney/clformat</a>
+</li>
+<li>Python port of FORTRAN's format statement: <a href="https://pypi.python.org/pypi/fortranformat">https://pypi.python.org/pypi/fortranformat</a>
+</li>
+</ul>
+
+</section>
+<section>
+
+<p>
+Templating libraries
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-python"></pre>
 </div>
 </section>
 
@@ -144,17 +401,13 @@ one, two, three
 <section>
 <section id="sec-4" >
 
-<h2><span class="section-number-2">4</span> Creating strings</h2>
+<h2>Creating strings</h2>
 <p>
 Creating strings:
 literal syntax
 +, *, join,
 </p>
 
-<p>
-beginswith()
-endswith()
-</p>
 
 <p>
 Structured output:
@@ -188,8 +441,6 @@ More advanced topics:
 <li>unicode, Python 2 vs Python 3
 </li>
 </ul>
-
-
 
 <p>
 clformat
