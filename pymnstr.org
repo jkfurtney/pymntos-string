@@ -4,14 +4,13 @@
 #+EMAIL: @jkfurtney
 #+OPTIONS: toc:nil num:nil
 
-If you want to build a ship, don't drum up the men to gather wood,
-divide the work and give orders. Instead, teach them to yearn for the
-vast and endless sea.
+* String literals
 
-First Law of Thermodynamics: You can't win.
-Second Law of Thermodynamics: You can't break even.
-Third Law of Thermodynamics: You can't stop playing.
+#+BEGIN_SRC python :session :exports code :results pp
+joke      = "It's hard to explain puns to kleptomaniacs"
+punchline = 'because they always take things literally.'
 
+poem = """
 The Ogre does what ogres can,
 Deeds quite impossible for Man,
 But one prize is beyond his reach:
@@ -21,21 +20,20 @@ About a subjugated plain,
 Among its desperate and slain,
 The Ogre stalks with hands on hips,
 While drivel gushes from his lips.
-
-
-* Strings
-
-#+BEGIN_SRC python :session :exports both :results pp
-string_1 = "It's hard to explain puns to kleptomaniacs"
-string_2 = 'because they always take things literally.'
-
-string_3 = """
-This is a multi-line string literal. Often these triple quites are
-used for docstrings.
 """
 #+END_SRC
 
 - Let us ignore Unicode and byte strings for now
+
+#+REVEAL: split
+- raw strings
+
+#+BEGIN_SRC python :session :exports both :results output pp
+print "first line\nsecond line"
+print r"first line\nsecond line"
+#+END_SRC
+
+- Unicode and byte strings...
 
 * Basic string operations
 
@@ -62,13 +60,10 @@ int("42") == 42
 #+REVEAL: split
 Iteration
 #+BEGIN_SRC python :session :exports both :results output pp
-for char in "pymntos":
-    print char
-
+for char in "pymntos": print char
 #+END_SRC
 
 #+REVEAL: split
-
 Slicing
 #+BEGIN_SRC python :session :exports both :results pp
 book_description =  "A cautionary tale of the decadent downside of the American dream."
@@ -81,9 +76,8 @@ book_description =  "A cautionary tale of the decadent downside of the American 
 book_description[2:12] = "silly"
 #+END_SRC
 
-
-Python strings are immutable for performance and safety. Most string
-methods and functions return a new string object.
+- Python strings are immutable for performance and safety.
+- The string  methods and functions return a new string object.
 
 #+REVEAL: split
 #+BEGIN_SRC python :session :exports both :results output pp
@@ -95,10 +89,11 @@ print book_description
 The original string is unchanged.
 #+REVEAL: split
 #+BEGIN_SRC python :session :exports both :results output pp
-print book_description.upper()
-print book_description.title()
-print book_description.swapcase()
-print book_description
+incoherent = "Has Anyone Really Been Far Even as Decided to Use Even Go Want to do Look More Like?"
+print incoherent.upper()
+print incoherent.title()
+print incoherent.swapcase()
+print incoherent
 #+END_SRC
 
 #+REVEAL: split
@@ -111,29 +106,26 @@ print book_description
 "one,two,three".split(",")
 #+END_SRC
 
-** Code golf
-
-Produce the number 2014 without any numbers in your source code
-
-- from http://codegolf.stackexchange.com/questions/17005/produce-the-number-2014-without-any-numbers-in-your-source-code
-- the Python entry won the internet.
+#+REVEAL: split
 #+BEGIN_SRC python :session :exports both :results output pp
-sum(ord(c) for c in 'Happy new year to you!')
+laws = """First Law of Thermodynamics: You can't win.
+Second Law of Thermodynamics: You can't break even.
+Third Law of Thermodynamics: You can't stop playing.
+"""
+for law in laws.splitlines():
+    print law.split(":")[1]
 #+END_SRC
-
-- see also chr() which is the inverse of ord().
-- this is ascii specific.
 
 ** Searching strings
 #+BEGIN_SRC python :session :exports both :results pp
 book_description =  "A cautionary tale of the decadent downside of the American dream."
 
 (
-  book_description.startswith ("A"),
-  book_description.endswith ("dream."),
   "of" in book_description,
-  book_description.find ("tale"),
-  book_description.find ("Python")
+  book_description.startswith("A"),
+  book_description.endswith("dream."),
+  book_description.find("tale"),
+  book_description.find("Python")
 )
 #+END_SRC
 
@@ -150,8 +142,36 @@ book_text.count("my")
 
 ** Regular expressions
 
+#+REVEAL: split
+#+BEGIN_SRC c++ :session :exports code
+fish->registerLibrary(NEWC(BaseLibrary(r,iArrayGet    ,"array.create" ,-1,true ,"array","int,..."  )));
+fish->registerLibrary(NEWC(BaseLibrary(r,iArrayLose   ,"array.delete" , 1,true ,"void" ,"array"    )));
+fish->registerLibrary(NEWC(BaseLibrary(r,iArrayDim    ,"array.dim"    , 1,true ,"int"  ,"array"    )));
+fish->registerLibrary(NEWC(BaseLibrary(r,iArraySize   ,"array.size"   , 2,true ,"int"  ,"array,int")));
+fish->registerLibrary(NEWC(BaseLibrary(r,iArrayConvert,"array.convert", 1,true ,"array","mat/tens")));
+fish->registerLibrary(NEWC(BaseLibrary(r,iArrayCopy   ,"array.copy"   , 1,false,"array","array")));
+fish->registerLibrary(NEWC(BaseLibrary(r,iArrayCommand,"array.command", 1,true ,"bool" ,"array")));
+#+END_SRC
 
+- my_code.cpp
 
+#+REVEAL: split
+   #+BEGIN_SRC python :session :exports both :results output pp
+import re
+pattern = re.compile(r'.*registerLibrary[^"]*"([^"]*)".*')
+
+results = []
+for line in open("my_code.cpp").readlines():
+    match = pattern.match(line)
+    if match:
+        results.append(match.groups()[0])
+
+results
+   #+END_SRC
+
+   #+RESULTS:
+   :
+   : >>> >>> >>> ... ... ... ... >>> ['array.create', 'array.delete', 'array.dim', 'array.size', 'array.convert', 'array.copy', 'array.command']
 
 * In the old days...
    :PROPERTIES:
@@ -185,17 +205,17 @@ Python port of the Common Lisp FORMAT function.
 
 #+BEGIN_SRC python :session :exports both :results output pp
 from clformat import clformat
+import time
 
 clformat("There is a ~a in my string.", "foo")
-
 clformat("~r cat~:p", 10)
-
 clformat("~{~a~^-~}", range(8))
-
-import time
 clformat("The year is ~@r", time.localtime().tm_year)
+clformat("~#[ none~; ~A~; ~A and ~A~:;~@{~#[~; and~] ~A~^,~}~].",
+         "James", "Simon", "Jason", "Kerry")
 #+END_SRC
 
+- Not for the faint of heart...
 - https://github.com/jkfurtney/clformat
 - Python port of FORTRAN's format statement: https://pypi.python.org/pypi/fortranformat
 
@@ -208,15 +228,47 @@ Templating libraries
 #+END_SRC
 
 
-* Creating strings
+** Unicode
+
+** Code golf
+
+Produce the number 2014 without any numbers in your source code
+
+- from http://codegolf.stackexchange.com/questions/17005/produce-the-number-2014-without-any-numbers-in-your-source-code
+
+#+BEGIN_SRC python :session :exports both :results output pp
+sum(ord(c) for c in 'Happy new year to you!')
+#+END_SRC
+
+- see also chr() (or unichr()) which is the inverse of ord().
 
 ** Unicode
 
-- 110,000 characters and symbols are defined.
-- Python 2: strings are byte arrays
-- Python 3: all strings are unicode string. Python 3 also has a
-  byte string type for manupulating bytes directly.
+- 110,000 characters and symbols are defined for about 100 written scripts & about 50 different encodings.
+
+- Python 2: str are byte arrays
+  - used for both 8 bit strings and binary data
+- Python 2: unicode object
+
+- Python 3: all strings are unicode strings.
+- Python 3: also has a bytes type for binary data.
+
 - Practical Unicode: How do I stop the pain: http://nedbatchelder.com/text/unipain.html
+- http://www.joelonsoftware.com/articles/Unicode.html
 
+** other
 
-json & xml
+- json & xml
+- StringIO
+- eval() and repr()
+- struct
+- difflib
+
+#+REVEAL: split
+#+BEGIN_SRC python :session :exports both :results output pp
+"""
+If you want to build a ship, don't drum up the men to gather wood,
+divide the work and give orders. Instead, teach them to yearn for the
+vast and endless sea.
+"""
+#+END_SRC
