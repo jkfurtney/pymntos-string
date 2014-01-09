@@ -18,32 +18,60 @@
 <h2>Jason Furtney</h2>
 <h2><a href="mailto:@jkfurtney">@jkfurtney</a></h2>
 <h2></h2></section>
+
 <section>
 <section id="sec-1" >
 
-<h2>Strings</h2>
+<h2>String literals</h2>
 <div class="org-src-container">
 
-<pre class="src src-python"><span style="color: #D8FA3C;">string_1</span> = <span style="color: #61CE3C;">"My first string"</span>
+<pre class="src src-python"><span style="color: #D8FA3C;">joke</span>      = <span style="color: #61CE3C;">"It's hard to explain puns to kleptomaniacs"</span>
+<span style="color: #D8FA3C;">punchline</span> = <span style="color: #61CE3C;">'because they always take things literally.'</span>
 
-<span style="color: #D8FA3C;">string_2</span> = <span style="color: #61CE3C;">'Another string'</span>
+<span style="color: #D8FA3C;">poem</span> = <span style="color: #61CE3C;">"""</span>
+<span style="color: #61CE3C;">The Ogre does what ogres can,</span>
+<span style="color: #61CE3C;">Deeds quite impossible for Man,</span>
+<span style="color: #61CE3C;">But one prize is beyond his reach:</span>
+<span style="color: #61CE3C;">The Ogre cannot master Speech.</span>
 
-<span style="color: #D8FA3C;">string_3</span> = <span style="color: #61CE3C;">"""</span>
-<span style="color: #61CE3C;">This is a multi-line string literal. Often these triple quites are</span>
-<span style="color: #61CE3C;">used for docstrings.</span>
+<span style="color: #61CE3C;">About a subjugated plain,</span>
+<span style="color: #61CE3C;">Among its desperate and slain,</span>
+<span style="color: #61CE3C;">The Ogre stalks with hands on hips,</span>
+<span style="color: #61CE3C;">While drivel gushes from his lips.</span>
 <span style="color: #61CE3C;">"""</span>
 </pre>
 </div>
 
-<pre class="example">
-'org_babel_python_eoe'
+</section>
+<section>
+<p>
+Raw strings
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FBDE2D;">print</span> <span style="color: #61CE3C;">"first line\nsecond line"</span>
+
+<span style="color: #FBDE2D;">print</span> r<span style="color: #61CE3C;">"first line\nsecond line"</span>
 </pre>
+</div>
+
+<pre class="example">
+first line
+second line
+first line\nsecond line
+</pre>
+
+<ul class="org-ul">
+<li>Unicode and byte strings&#x2026;
+</li>
+</ul>
 </section>
 </section>
 <section>
 <section id="sec-2" >
 
-<h2>Basic string operations</h2>
+<h2>String operations</h2>
 <div class="org-src-container">
 
 <pre class="src src-python"><span style="color: #61CE3C;">"Spam "</span> + <span style="color: #61CE3C;">"eggs"</span>
@@ -108,7 +136,7 @@ Iteration
 </div>
 
 <pre class="example">
-... p
+p
 y
 m
 n
@@ -117,15 +145,16 @@ o
 s
 </pre>
 
+
 </section>
 <section>
-
 <p>
 Slicing
 </p>
 <div class="org-src-container">
 
 <pre class="src src-python"><span style="color: #D8FA3C;">book_description</span> =  <span style="color: #61CE3C;">"A cautionary tale of the decadent downside of the American dream."</span>
+
 book_description[2:12]
 </pre>
 </div>
@@ -139,21 +168,23 @@ book_description[2:12]
 <div class="org-src-container">
 
 <pre class="src src-python"><span style="color: #D8FA3C;">book_description</span> =  <span style="color: #61CE3C;">"A cautionary tale of the decadent downside of the American dream."</span>
+
 <span style="color: #D8FA3C;">book_description</span>[2:12] = <span style="color: #61CE3C;">"silly"</span>
 </pre>
 </div>
 
 <pre class="example">
-Traceback (most recent call last):
+&gt;&gt;&gt; Traceback (most recent call last):
   File "&lt;stdin&gt;", line 1, in &lt;module&gt;
 TypeError: 'str' object does not support item assignment
 </pre>
 
-
-<p>
-Python strings are immutable for performance and safety. Most string
-methods and functions return a new string object.
-</p>
+<ul class="org-ul">
+<li>Python strings are immutable for performance and safety.
+</li>
+<li>The string  methods and functions return a new string object.
+</li>
+</ul>
 
 </section>
 <section>
@@ -177,18 +208,19 @@ The original string is unchanged.
 <section>
 <div class="org-src-container">
 
-<pre class="src src-python"><span style="color: #FBDE2D;">print</span> book_description.upper()
-<span style="color: #FBDE2D;">print</span> book_description.title()
-<span style="color: #FBDE2D;">print</span> book_description.swapcase()
-<span style="color: #FBDE2D;">print</span> book_description
+<pre class="src src-python"><span style="color: #D8FA3C;">incoherent</span> = <span style="color: #61CE3C;">"Has Anyone Really Been Far Even as Decided to Use Even Go Want to do Look More Like?"</span>
+<span style="color: #FBDE2D;">print</span> incoherent.upper()
+<span style="color: #FBDE2D;">print</span> incoherent.title()
+<span style="color: #FBDE2D;">print</span> incoherent.swapcase()
+<span style="color: #FBDE2D;">print</span> incoherent
 </pre>
 </div>
 
 <pre class="example">
-A CAUTIONARY TALE OF THE DECADENT DOWNSIDE OF THE AMERICAN DREAM.
-A Cautionary Tale Of The Decadent Downside Of The American Dream.
-a CAUTIONARY TALE OF THE DECADENT DOWNSIDE OF THE aMERICAN DREAM.
-A cautionary tale of the decadent downside of the American dream.
+HAS ANYONE REALLY BEEN FAR EVEN AS DECIDED TO USE EVEN GO WANT TO DO LOOK MORE LIKE?
+Has Anyone Really Been Far Even As Decided To Use Even Go Want To Do Look More Like?
+hAS aNYONE rEALLY bEEN fAR eVEN AS dECIDED TO uSE eVEN gO wANT TO DO lOOK mORE lIKE?
+Has Anyone Really Been Far Even as Decided to Use Even Go Want to do Look More Like?
 </pre>
 
 </section>
@@ -216,37 +248,27 @@ A cautionary tale of the decadent downside of the American dream.
 </pre>
 
 </section>
-<section id="sec-2-1" >
-
-<h3>Code golf</h3>
-<p>
-Produce the number 2014 without any numbers in your source code
-</p>
-
-<ul class="org-ul">
-<li>from <a href="http://codegolf.stackexchange.com/questions/17005/produce-the-number-2014-without-any-numbers-in-your-source-code">http://codegolf.stackexchange.com/questions/17005/produce-the-number-2014-without-any-numbers-in-your-source-code</a>
-</li>
-<li>the Python entry won the internet.
-</li>
-</ul>
+<section>
 <div class="org-src-container">
 
-<pre class="src src-python"><span style="color: #FF6400;">sum</span>(<span style="color: #FF6400;">ord</span>(c) <span style="color: #FBDE2D;">for</span> c <span style="color: #FBDE2D;">in</span> <span style="color: #61CE3C;">'Happy new year to you!'</span>)
+<pre class="src src-python"><span style="color: #D8FA3C;">laws</span> = <span style="color: #61CE3C;">""" First Law of Thermodynamics: You can't win.</span>
+<span style="color: #61CE3C;">           Second Law of Thermodynamics: You can't break even.</span>
+<span style="color: #61CE3C;">           Third Law of Thermodynamics: You can't stop playing."""</span>
+
+<span style="color: #FBDE2D;">for</span> law <span style="color: #FBDE2D;">in</span> laws.splitlines():
+    <span style="color: #FBDE2D;">print</span> law.split(<span style="color: #61CE3C;">":"</span>)[1]
 </pre>
 </div>
 
 <pre class="example">
-2014
+You can't win.
+You can't break even.
+You can't stop playing.
 </pre>
 
-<ul class="org-ul">
-<li>see also chr() which is the inverse of ord().
-</li>
-<li>this is ascii specific.
-</li>
-</ul>
+
 </section>
-<section id="sec-2-2" >
+<section id="sec-2-1" >
 
 <h3>Searching strings</h3>
 <div class="org-src-container">
@@ -254,11 +276,11 @@ Produce the number 2014 without any numbers in your source code
 <pre class="src src-python"><span style="color: #D8FA3C;">book_description</span> =  <span style="color: #61CE3C;">"A cautionary tale of the decadent downside of the American dream."</span>
 
 (
-  book_description.startswith (<span style="color: #61CE3C;">"A"</span>),
-  book_description.endswith (<span style="color: #61CE3C;">"dream."</span>),
   <span style="color: #61CE3C;">"of"</span> <span style="color: #FBDE2D;">in</span> book_description,
-  book_description.find (<span style="color: #61CE3C;">"tale"</span>),
-  book_description.find (<span style="color: #61CE3C;">"Python"</span>)
+  book_description.startswith(<span style="color: #61CE3C;">"A"</span>),
+  book_description.endswith(<span style="color: #61CE3C;">"dream."</span>),
+  book_description.find(<span style="color: #61CE3C;">"tale"</span>),
+  book_description.find(<span style="color: #61CE3C;">"Python"</span>)
 )
 </pre>
 </div>
@@ -266,6 +288,7 @@ Produce the number 2014 without any numbers in your source code
 <pre class="example">
 (True, True, True, 13, -1)
 </pre>
+
 
 </section>
 <section>
@@ -277,6 +300,7 @@ Produce the number 2014 without any numbers in your source code
 <span style="color: #61CE3C;">like criticizing any one", he told me, "just remember that all the</span>
 <span style="color: #61CE3C;">people in this world haven't had the advantages that you've had."</span>
 <span style="color: #61CE3C;">"""</span> <span style="color: #8B8989; font-style: italic;">#  </span><span style="color: #8B8989; font-style: italic;">The first sentence of The Great Gatsby</span>
+
 book_text.count(<span style="color: #61CE3C;">"my"</span>)
 </pre>
 </div>
@@ -284,28 +308,56 @@ book_text.count(<span style="color: #61CE3C;">"my"</span>)
 <pre class="example">
 3
 </pre>
+
 </section>
-<section id="sec-2-3" >
+<section id="sec-2-2" >
 
 <h3>Regular expressions</h3>
 </section>
+<section>
+<div class="org-src-container">
 
+<pre class="src src-c++">fish-&gt;registerLibrary(NEWC(BaseLibrary(r,iArrayGet    ,<span style="color: #61CE3C;">"array.create"</span> ,-1,<span style="color: #4c83ff;">true</span> ,<span style="color: #61CE3C;">"array"</span>,<span style="color: #61CE3C;">"int,..."</span>  )));
+fish-&gt;registerLibrary(NEWC(BaseLibrary(r,iArrayLose   ,<span style="color: #61CE3C;">"array.delete"</span> , 1,<span style="color: #4c83ff;">true</span> ,<span style="color: #61CE3C;">"void"</span> ,<span style="color: #61CE3C;">"array"</span>    )));
+fish-&gt;registerLibrary(NEWC(BaseLibrary(r,iArrayDim    ,<span style="color: #61CE3C;">"array.dim"</span>    , 1,<span style="color: #4c83ff;">true</span> ,<span style="color: #61CE3C;">"int"</span>  ,<span style="color: #61CE3C;">"array"</span>    )));
+fish-&gt;registerLibrary(NEWC(BaseLibrary(r,iArraySize   ,<span style="color: #61CE3C;">"array.size"</span>   , 2,<span style="color: #4c83ff;">true</span> ,<span style="color: #61CE3C;">"int"</span>  ,<span style="color: #61CE3C;">"array,int"</span>)));
+fish-&gt;registerLibrary(NEWC(BaseLibrary(r,iArrayConvert,<span style="color: #61CE3C;">"array.convert"</span>, 1,<span style="color: #4c83ff;">true</span> ,<span style="color: #61CE3C;">"array"</span>,<span style="color: #61CE3C;">"mat/tens"</span>)));
+fish-&gt;registerLibrary(NEWC(BaseLibrary(r,iArrayCopy   ,<span style="color: #61CE3C;">"array.copy"</span>   , 1,<span style="color: #4c83ff;">false</span>,<span style="color: #61CE3C;">"array"</span>,<span style="color: #61CE3C;">"array"</span>)));
+fish-&gt;registerLibrary(NEWC(BaseLibrary(r,iArrayCommand,<span style="color: #61CE3C;">"array.command"</span>, 1,<span style="color: #4c83ff;">true</span> ,<span style="color: #61CE3C;">"bool"</span> ,<span style="color: #61CE3C;">"array"</span>)));
+</pre>
+</div>
 
+<ul class="org-ul">
+<li>my<sub>code</sub>.cpp
+</li>
+</ul>
 
 </section>
 <section>
-<section id="sec-3"  data-background="./dumb_terminal.gif" data-background-transition="slide">
+<div class="org-src-container">
 
-<h2>In the old days</h2>
+<pre class="src src-python"><span style="color: #FBDE2D;">import</span> re
+<span style="color: #D8FA3C;">pattern</span> = re.<span style="color: #FF6400;">compile</span>(r<span style="color: #61CE3C;">'.*registerLibrary[^"]*"([^"]*)".*'</span>)
 
+<span style="color: #D8FA3C;">results</span> = []
+<span style="color: #FBDE2D;">for</span> line <span style="color: #FBDE2D;">in</span> <span style="color: #FF6400;">open</span>(<span style="color: #61CE3C;">"my_code.cpp"</span>).readlines():
+    <span style="color: #D8FA3C;">match</span> = pattern.match(line)
+    <span style="color: #FBDE2D;">if</span> match:
+        results.append(match.groups()[0])
+
+<span style="color: #FBDE2D;">print</span> results
+</pre>
+</div>
+
+<pre class="example">
+['array.create', 'array.delete', 'array.dim', 'array.size', 'array.convert', 'array.copy', 'array.command']
+</pre>
 </section>
-<section id="sec-3-1"  data-background="./paper_tape_reader.gif">
-
-<h3>.</h3>
 </section>
-<section id="sec-3-2" >
+<section>
+<section id="sec-3" >
 
-<h3>Structured Output</h3>
+<h2>Structured Output</h2>
 <p>
 String interpolation with %
 </p>
@@ -339,7 +391,166 @@ is extensible.
 
 </section>
 <section>
+<div class="org-src-container">
 
+<pre class="src src-python"><span style="color: #D8FA3C;">template</span> = <span style="color: #61CE3C;">"Hello {0}, welcome to {1}. {0} is {2}."</span>
+template.<span style="color: #FF6400;">format</span>(<span style="color: #61CE3C;">"David"</span>, <span style="color: #61CE3C;">"Minnesota"</span>, <span style="color: #61CE3C;">"Tall"</span>)
+</pre>
+</div>
+
+<pre class="example">
+'Hello David, welcome to Minnesota. David is Tall.'
+</pre>
+
+</section>
+<section>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #D8FA3C;">template</span> = <span style="color: #61CE3C;">"Hello {name}, welcome to {place}. {name} is {description}."</span>
+template.<span style="color: #FF6400;">format</span>(name=<span style="color: #61CE3C;">"David"</span>, place=<span style="color: #61CE3C;">"Minnesota"</span>, description=<span style="color: #61CE3C;">"Tall"</span>)
+</pre>
+</div>
+
+<pre class="example">
+'Hello David, welcome to Minnesota. David is Tall.'
+</pre>
+
+</section>
+<section>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #D8FA3C;">data</span>=[12,13,14,12,17,10]
+<span style="color: #61CE3C;">"First data point: {0[0]}, second data point: {0[1]}"</span>.<span style="color: #FF6400;">format</span>(data)
+</pre>
+</div>
+
+<pre class="example">
+'First data point: 12, second data point: 13'
+</pre>
+
+</section>
+<section>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #D8FA3C;">info</span> = {<span style="color: #61CE3C;">'name'</span>: <span style="color: #61CE3C;">"Jim"</span>, <span style="color: #61CE3C;">'email'</span> : <span style="color: #61CE3C;">"jim@gmail.com"</span>, <span style="color: #61CE3C;">'age'</span> : 35}
+<span style="color: #61CE3C;">"{person[name]}'s email is {person[email]}"</span>.<span style="color: #FF6400;">format</span>(person=info)
+</pre>
+</div>
+
+<pre class="example">
+"Jim's email is jim@gmail.com"
+</pre>
+
+</section>
+<section>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FBDE2D;">class</span> <span style="color: #D8FA3C;">Purchase</span>:
+    <span style="color: #FBDE2D;">pass</span>
+
+<span style="color: #D8FA3C;">transaction</span> = Purchase()
+<span style="color: #D8FA3C;">transaction.number</span> = 3
+<span style="color: #D8FA3C;">transaction.customer</span> = <span style="color: #61CE3C;">"Bill"</span>
+<span style="color: #D8FA3C;">transaction.product</span> = <span style="color: #61CE3C;">"Widget"</span>
+
+<span style="color: #D8FA3C;">receipt</span> = <span style="color: #61CE3C;">"Thank you {0.customer} for your purchase of {0.number} {0.product}s."</span>
+<span style="color: #FBDE2D;">print</span> receipt.<span style="color: #FF6400;">format</span>(transaction)
+</pre>
+</div>
+
+<pre class="example">
+Thank you Bill for your purchase of 3 Widgets.
+</pre>
+
+</section>
+<section id="sec-3-1"  data-background="./dumb_terminal.gif" data-background-transition="slide">
+
+<h3>In the old days&#x2026;</h3>
+</section>
+<section id="sec-3-2"  data-background="./paper_tape_reader.gif">
+
+<h3>.</h3>
+
+</section>
+<section>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FBDE2D;">from</span> math <span style="color: #FBDE2D;">import</span> pi, e
+<span style="color: #FBDE2D;">for</span> i <span style="color: #FBDE2D;">in</span> [-2,-1,0,1,2]:
+    <span style="color: #D8FA3C;">scale</span> = 10**i
+    <span style="color: #FBDE2D;">print</span> <span style="color: #61CE3C;">"{:9.4f} {:9.4f} {:9.4f}"</span>.<span style="color: #FF6400;">format</span>(10 * scale, pi * scale, e * scale)
+</pre>
+</div>
+
+<pre class="example">
+   0.1000    0.0314    0.0272
+   1.0000    0.3142    0.2718
+  10.0000    3.1416    2.7183
+ 100.0000   31.4159   27.1828
+1000.0000  314.1593  271.8282
+</pre>
+
+</section>
+<section>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #D8FA3C;">words</span> = <span style="color: #61CE3C;">"Has Anyone Really Been Far Even as Decided to Use Even Go Want to do Look More Like?"</span>.split()
+
+<span style="color: #FBDE2D;">for</span> i <span style="color: #FBDE2D;">in</span> <span style="color: #FF6400;">range</span>(6):
+    <span style="color: #FBDE2D;">print</span> (<span style="color: #61CE3C;">"{:10}"</span>*3).<span style="color: #FF6400;">format</span>(words.pop(0), words.pop(0), words.pop(0))
+</pre>
+</div>
+
+<pre class="example">
+Has       Anyone    Really
+Been      Far       Even
+as        Decided   to
+Use       Even      Go
+Want      to        do
+Look      More      Like?
+</pre>
+
+</section>
+<section>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #D8FA3C;">number</span> = 123
+<span style="color: #61CE3C;">"decimal: {0}, hex: {0:X}, binary: {0:b}"</span>.<span style="color: #FF6400;">format</span>(number)
+</pre>
+</div>
+
+<pre class="example">
+'decimal: 123, hex: 7B, binary: 1111011'
+</pre>
+
+</section>
+<section>
+<p>
+Template libraries
+</p>
+
+<ul class="org-ul">
+<li>Jinja2 is a modern and designer friendly templating language for Python, modelled after Django's templates. It is fast, widely used and secure with the optional sandboxed template execution environment:
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-html">&lt;<span style="color: #ff1493;">title</span>&gt;<span style="font-weight: bold;">{% block title %}{% endblock %}</span>&lt;/<span style="color: #ff1493;">title</span>&gt;
+&lt;<span style="color: #ff1493;">ul</span>&gt;
+{% for user in users %}
+  &lt;<span style="color: #ff1493;">li</span>&gt;&lt;<span style="color: #ff1493;">a</span> <span style="color: #D8FA3C;">href</span>=<span style="color: #61CE3C;">"{{ user.url }}"</span>&gt;{{ user.username }}&lt;/<span style="color: #ff1493;">a</span>&gt;&lt;/<span style="color: #ff1493;">li</span>&gt;
+{% endfor %}
+&lt;/<span style="color: #ff1493;">ul</span>&gt;
+</pre>
+</div>
+
+<ul class="org-ul">
+<li><a href="http://jinja.pocoo.org/docs/">http://jinja.pocoo.org/docs/</a>
+</li>
+</ul>
+
+</section>
+<section>
 <p>
 Python port of the Common Lisp FORMAT function.
 </p>
@@ -347,121 +558,119 @@ Python port of the Common Lisp FORMAT function.
 <div class="org-src-container">
 
 <pre class="src src-python"><span style="color: #FBDE2D;">from</span> clformat <span style="color: #FBDE2D;">import</span> clformat
+<span style="color: #FBDE2D;">import</span> time
 
 clformat(<span style="color: #61CE3C;">"There is a ~a in my string."</span>, <span style="color: #61CE3C;">"foo"</span>)
-
 clformat(<span style="color: #61CE3C;">"~r cat~:p"</span>, 10)
-
 clformat(<span style="color: #61CE3C;">"~{~a~^-~}"</span>, <span style="color: #FF6400;">range</span>(8))
-
-<span style="color: #FBDE2D;">import</span> time
 clformat(<span style="color: #61CE3C;">"The year is ~@r"</span>, time.localtime().tm_year)
+clformat(<span style="color: #61CE3C;">"~#[ none~; ~A~; ~A and ~A~:;~@{~#[~; and~] ~A~^,~}~]."</span>,
+         <span style="color: #61CE3C;">"James"</span>, <span style="color: #61CE3C;">"Simon"</span>, <span style="color: #61CE3C;">"Jason"</span>, <span style="color: #61CE3C;">"Kerry"</span>)
 </pre>
 </div>
 
 <pre class="example">
-Traceback (most recent call last):
-  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
-ImportError: No module named clformat
-&gt;&gt;&gt; Traceback (most recent call last):
-  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
-NameError: name 'clformat' is not defined
-&gt;&gt;&gt; Traceback (most recent call last):
-  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
-NameError: name 'clformat' is not defined
-&gt;&gt;&gt; Traceback (most recent call last):
-  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
-NameError: name 'clformat' is not defined
-&gt;&gt;&gt; &gt;&gt;&gt; Traceback (most recent call last):
-  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
-NameError: name 'clformat' is not defined
+There is a foo in my string.
+ten cats
+0-1-2-3-4-5-6-7
+The year is MMXIV
+ James, Simon, Jason, and Kerry.
 </pre>
 
 <ul class="org-ul">
+<li>Not for the faint of heart&#x2026;
+</li>
 <li><a href="https://github.com/jkfurtney/clformat">https://github.com/jkfurtney/clformat</a>
 </li>
 <li>Python port of FORTRAN's format statement: <a href="https://pypi.python.org/pypi/fortranformat">https://pypi.python.org/pypi/fortranformat</a>
 </li>
 </ul>
-
-</section>
-<section>
-
-<p>
-Templating libraries
-</p>
-
-<div class="org-src-container">
-
-<pre class="src src-python"></pre>
-</div>
 </section>
 
 </section>
 <section>
 <section id="sec-4" >
 
-<h2>Creating strings</h2>
-<p>
-Creating strings:
-literal syntax
-+, *, join,
-</p>
+<h2>Unicode</h2>
+</section>
+<section id="sec-4-1" >
 
-
+<h3>Code golf</h3>
 <p>
-Structured output:
-%, the interpolation operator
-format
-templates
-</p>
-
-<p>
-json
-xml
-</p>
-
-<p>
-Breaking string apart:
-</p>
-
-<p>
-indexing and slicing.
-the split method.
-partition
-</p>
-
-<p>
-More advanced topics:
+Produce the number 2014 without any numbers in your source code
 </p>
 
 <ul class="org-ul">
-<li>raw strings
-</li>
-<li>unicode, Python 2 vs Python 3
+<li>from <a href="http://codegolf.stackexchange.com/questions/17005/produce-the-number-2014-without-any-numbers-in-your-source-code">http://codegolf.stackexchange.com/questions/17005/produce-the-number-2014-without-any-numbers-in-your-source-code</a>
 </li>
 </ul>
 
-<p>
-clformat
-</p>
+<div class="org-src-container">
 
-<p>
-string object methods, string module
-</p>
+<pre class="src src-python"><span style="color: #FF6400;">sum</span>(<span style="color: #FF6400;">ord</span>(c) <span style="color: #FBDE2D;">for</span> c <span style="color: #FBDE2D;">in</span> <span style="color: #61CE3C;">'Happy new year to you!'</span>)
+</pre>
+</div>
 
-<p>
-Python strings are immutable, like tuples:
-</p>
+<pre class="example">
+2014
+</pre>
 
 <ul class="org-ul">
-<li>Performance, objects can be reused
-</li>
-<li>Use as dictonary keys
-</li>
-<li>Safety, easier multi-treading
+<li>see also chr() (or unichr()) which is the inverse of ord().
 </li>
 </ul>
+</section>
+<section id="sec-4-2" >
+
+<h3>Unicode</h3>
+<ul class="org-ul">
+<li>110,000 characters and symbols are defined for about 100 written scripts &amp; about 50 different encodings.
+</li>
+
+<li>Python 2: str are byte arrays
+<ul class="org-ul">
+<li>used for both 8 bit strings and binary data
+</li>
+</ul>
+</li>
+<li>Python 2: Unicode object
+</li>
+
+<li>Python 3: all strings are Unicode strings.
+</li>
+<li>Python 3: also has a bytes type for binary data.
+</li>
+
+<li>Practical Unicode: How do I stop the pain: <a href="http://nedbatchelder.com/text/unipain.html">http://nedbatchelder.com/text/unipain.html</a>
+</li>
+<li><a href="http://www.joelonsoftware.com/articles/Unicode.html">http://www.joelonsoftware.com/articles/Unicode.html</a>
+</li>
+</ul>
+</section>
+<section id="sec-4-3" >
+
+<h3>other</h3>
+<ul class="org-ul">
+<li>more stuff in the string module
+</li>
+<li>json &amp; xml parsers
+</li>
+<li>StringIO module use strings as file objects
+</li>
+<li>struct module for binary IO
+</li>
+</ul>
+
+
+</section>
+<section>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #61CE3C;">"""</span>
+<span style="color: #61CE3C;">Thank You!</span>
+<span style="color: #61CE3C;">"""</span>
+</pre>
+</div>
 </section>
 </section>
 </div>
