@@ -80,7 +80,7 @@ book_description[2:12] = "silly"
 #+END_SRC
 
 - Python strings are immutable for performance and safety.
-- The string  methods and functions return a new string object.
+- The =str= methods and functions return a new =str= object.
 
 #+REVEAL: split
 #+BEGIN_SRC python :session :exports both :results output pp
@@ -110,7 +110,7 @@ print incoherent
 #+END_SRC
 
 #+REVEAL: split
-#+BEGIN_SRC python :exports both :results output pp
+#+begin_SRC python :exports both :results output pp
 laws = """ First Law of Thermodynamics: You can't win.
            Second Law of Thermodynamics: You can't break even.
            Third Law of Thermodynamics: You can't stop playing."""
@@ -141,7 +141,7 @@ In my younger and more vulnerable years my father gave me some advice
 that I've been turning over in my mind ever since. "Whenever you feel
 like criticizing any one", he told me, "just remember that all the
 people in this world haven't had the advantages that you've had."
-""" #  The first sentence of The Great Gatsby
+""" #  The first two sentences from The Great Gatsby.
 
 book_text.count("my")
 #+END_SRC
@@ -160,7 +160,7 @@ fish->registerLibrary(NEWC(BaseLibrary(r,iArrayCopy   ,"array.copy"   , 1,false,
 fish->registerLibrary(NEWC(BaseLibrary(r,iArrayCommand,"array.command", 1,true ,"bool" ,"array")));
 #+END_SRC
 
-- my_code.cpp
+- =my_code.cpp=
 
 #+REVEAL: split
    #+BEGIN_SRC python :exports both :results output pp
@@ -178,17 +178,17 @@ print results
 
 * Structured Output
 
-String interpolation with %
+String interpolation with =%=
 #+BEGIN_SRC python :session :exports both :results pp
 "%s and %s" % ("Spam", "eggs")
 #+END_SRC
 
-The string .format() method
+The string =format= method
 #+BEGIN_SRC python :session :exports both :results pp
 "{} and {}".format("Spam", "eggs")
 #+END_SRC
 
-The .format() method is new (Python 2.6+) and generally preferred. It
+The =format= method is new (Python 2.6+) and generally preferred. It
 is extensible.
 
 #+REVEAL: split
@@ -204,18 +204,6 @@ template.format(name="David", place="Minnesota", description="Tall")
 #+END_SRC
 
 #+REVEAL: split
-#+BEGIN_SRC python :session :exports both :results output pp
-data=[12,13,14,12,17,10]
-"First data point: {0[0]}, second data point: {0[1]}".format(data)
-#+END_SRC
-
-#+REVEAL: split
-#+BEGIN_SRC python :session :exports both :results output pp
-info = {'name': "Jim", 'email' : "jim@gmail.com", 'age' : 35}
-"{person[name]}'s email is {person[email]}".format(person=info)
-#+END_SRC
-
-#+REVEAL: split
 #+BEGIN_SRC python :exports both :results output pp
 class Purchase:
     pass
@@ -227,6 +215,16 @@ transaction.product = "Widget"
 
 receipt = "Thank you {0.customer} for your purchase of {0.number} {0.product}s."
 print receipt.format(transaction)
+#+END_SRC
+
+- Access object attributes
+- dictionary keys
+- list indexing
+
+#+REVEAL: split
+#+BEGIN_SRC python :session :exports both :results output pp
+number = 123
+"decimal: {0}, hex: {0:X}, binary: {0:b}".format(number)
 #+END_SRC
 
 ** In the old days...
@@ -253,19 +251,13 @@ for i in [-2,-1,0,1,2]:
 words = "Has Anyone Really Been Far Even as Decided to Use Even Go Want to do Look More Like?".split()
 
 for i in range(6):
-    print ("{:10}"*3).format(words.pop(0), words.pop(0), words.pop(0))
+    print ("{:10}" * 3).format(words.pop(0), words.pop(0), words.pop(0))
 #+END_SRC
 
-#+REVEAL: split
-#+BEGIN_SRC python :session :exports both :results output pp
-number = 123
-"decimal: {0}, hex: {0:X}, binary: {0:b}".format(number)
-#+END_SRC
 
 #+REVEAL: split
-Template libraries
+Templating libraries
 
-- Jinja2 is a modern and designer friendly templating language for Python, modeled after Django's templates. It is fast, widely used and secure with the optional sandboxed template execution environment:
 #+BEGIN_SRC html :session :exports both :results output pp
 <title>{% block title %}{% endblock %}</title>
 <ul>
@@ -275,7 +267,7 @@ Template libraries
 </ul>
 #+END_SRC
 
-- http://jinja.pocoo.org/docs/
+- Jinja2 http://jinja.pocoo.org/docs/
 
 #+REVEAL: split
 Python port of the Common Lisp FORMAT function.
@@ -296,42 +288,43 @@ clformat("~#[ none~; ~A~; ~A and ~A~:;~@{~#[~; and~] ~A~^,~}~].",
 - https://github.com/jkfurtney/clformat
 - Python port of FORTRAN's format statement: https://pypi.python.org/pypi/fortranformat
 
-
 * Unicode
 
 ** Code golf
 
 Produce the number 2014 without any numbers in your source code
 
-- from http://codegolf.stackexchange.com/questions/17005/produce-the-number-2014-without-any-numbers-in-your-source-code
-
 #+BEGIN_SRC python :session :exports both :results output pp
 sum(ord(c) for c in 'Happy new year to you!')
 #+END_SRC
 
-- see also chr() (or unichr()) which is the inverse of ord().
+- see also =chr()= (or =unichr()=) which is the inverse of =ord()=.
 
 ** Unicode
 
-- 110,000 characters and symbols are defined for about 100 written scripts & about 50 different encodings.
+- 110,000 characters and symbols are defined for about 100 written scripts.
 
-- Python 2: str are byte arrays
-  - used for both 8 bit strings and binary data
-- Python 2: Unicode object
+- Python 2:
+  - =str= objects represent 8-bit text and binary data
+  - =Unicode= object
 
-- Python 3: all strings are Unicode strings.
-- Python 3: also has a bytes type for binary data.
+- Python 3:
+  - =str= object for Unicode text and 8-bit text
+  - =bytes= type for binary data
+
+#+REVEAL: split
+- Python 2.6+ and 3 have a =bytearray= type (mutable version of
+  bytes)
 
 - Practical Unicode: How do I stop the pain: http://nedbatchelder.com/text/unipain.html
 - http://www.joelonsoftware.com/articles/Unicode.html
 
 ** other
 
-- more stuff in the string module
-- json & xml parsers
-- StringIO module use strings as file objects
-- struct module for binary IO
-
+- more stuff in the =string= module
+- =json= & =xml= modules
+- =StringIO= module use strings as =file= objects
+- =struct= module for binary IO
 
 #+REVEAL: split
 #+BEGIN_SRC python :session :exports code :results output pp
