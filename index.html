@@ -182,7 +182,7 @@ TypeError: 'str' object does not support item assignment
 <ul class="org-ul">
 <li>Python strings are immutable for performance and safety.
 </li>
-<li>The string  methods and functions return a new string object.
+<li>The <code>str</code> methods and functions return a new <code>str</code> object.
 </li>
 </ul>
 
@@ -299,7 +299,7 @@ You can't stop playing.
 <span style="color: #61CE3C;">that I've been turning over in my mind ever since. "Whenever you feel</span>
 <span style="color: #61CE3C;">like criticizing any one", he told me, "just remember that all the</span>
 <span style="color: #61CE3C;">people in this world haven't had the advantages that you've had."</span>
-<span style="color: #61CE3C;">"""</span> <span style="color: #8B8989; font-style: italic;">#  </span><span style="color: #8B8989; font-style: italic;">The first sentence of The Great Gatsby</span>
+<span style="color: #61CE3C;">"""</span> <span style="color: #8B8989; font-style: italic;">#  </span><span style="color: #8B8989; font-style: italic;">The first two sentences from The Great Gatsby.</span>
 
 book_text.count(<span style="color: #61CE3C;">"my"</span>)
 </pre>
@@ -328,7 +328,7 @@ fish-&gt;registerLibrary(NEWC(BaseLibrary(r,iArrayCommand,<span style="color: #6
 </div>
 
 <ul class="org-ul">
-<li>my<sub>code</sub>.cpp
+<li><code>my_code.cpp</code>
 </li>
 </ul>
 
@@ -359,7 +359,7 @@ fish-&gt;registerLibrary(NEWC(BaseLibrary(r,iArrayCommand,<span style="color: #6
 
 <h2>Structured Output</h2>
 <p>
-String interpolation with %
+String interpolation with <code>%</code>
 </p>
 <div class="org-src-container">
 
@@ -372,7 +372,7 @@ String interpolation with %
 </pre>
 
 <p>
-The string .format() method
+The string <code>format</code> method
 </p>
 <div class="org-src-container">
 
@@ -385,7 +385,7 @@ The string .format() method
 </pre>
 
 <p>
-The .format() method is new (Python 2.6+) and generally preferred. It
+The <code>format</code> method is new (Python 2.6+) and generally preferred. It
 is extensible.
 </p>
 
@@ -419,32 +419,6 @@ template.<span style="color: #FF6400;">format</span>(name=<span style="color: #6
 <section>
 <div class="org-src-container">
 
-<pre class="src src-python"><span style="color: #D8FA3C;">data</span>=[12,13,14,12,17,10]
-<span style="color: #61CE3C;">"First data point: {0[0]}, second data point: {0[1]}"</span>.<span style="color: #FF6400;">format</span>(data)
-</pre>
-</div>
-
-<pre class="example">
-'First data point: 12, second data point: 13'
-</pre>
-
-</section>
-<section>
-<div class="org-src-container">
-
-<pre class="src src-python"><span style="color: #D8FA3C;">info</span> = {<span style="color: #61CE3C;">'name'</span>: <span style="color: #61CE3C;">"Jim"</span>, <span style="color: #61CE3C;">'email'</span> : <span style="color: #61CE3C;">"jim@gmail.com"</span>, <span style="color: #61CE3C;">'age'</span> : 35}
-<span style="color: #61CE3C;">"{person[name]}'s email is {person[email]}"</span>.<span style="color: #FF6400;">format</span>(person=info)
-</pre>
-</div>
-
-<pre class="example">
-"Jim's email is jim@gmail.com"
-</pre>
-
-</section>
-<section>
-<div class="org-src-container">
-
 <pre class="src src-python"><span style="color: #FBDE2D;">class</span> <span style="color: #D8FA3C;">Purchase</span>:
     <span style="color: #FBDE2D;">pass</span>
 
@@ -460,6 +434,28 @@ template.<span style="color: #FF6400;">format</span>(name=<span style="color: #6
 
 <pre class="example">
 Thank you Bill for your purchase of 3 Widgets.
+</pre>
+
+<ul class="org-ul">
+<li>Access object attributes
+</li>
+<li>dictionary keys
+</li>
+<li>list indexing
+</li>
+</ul>
+
+</section>
+<section>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #D8FA3C;">number</span> = 123
+<span style="color: #61CE3C;">"decimal: {0}, hex: {0:X}, binary: {0:b}"</span>.<span style="color: #FF6400;">format</span>(number)
+</pre>
+</div>
+
+<pre class="example">
+'decimal: 123, hex: 7B, binary: 1111011'
 </pre>
 
 </section>
@@ -497,7 +493,7 @@ Thank you Bill for your purchase of 3 Widgets.
 <pre class="src src-python"><span style="color: #D8FA3C;">words</span> = <span style="color: #61CE3C;">"Has Anyone Really Been Far Even as Decided to Use Even Go Want to do Look More Like?"</span>.split()
 
 <span style="color: #FBDE2D;">for</span> i <span style="color: #FBDE2D;">in</span> <span style="color: #FF6400;">range</span>(6):
-    <span style="color: #FBDE2D;">print</span> (<span style="color: #61CE3C;">"{:10}"</span>*3).<span style="color: #FF6400;">format</span>(words.pop(0), words.pop(0), words.pop(0))
+    <span style="color: #FBDE2D;">print</span> (<span style="color: #61CE3C;">"{:10}"</span> * 3).<span style="color: #FF6400;">format</span>(words.pop(0), words.pop(0), words.pop(0))
 </pre>
 </div>
 
@@ -510,29 +506,13 @@ Want      to        do
 Look      More      Like?
 </pre>
 
-</section>
-<section>
-<div class="org-src-container">
-
-<pre class="src src-python"><span style="color: #D8FA3C;">number</span> = 123
-<span style="color: #61CE3C;">"decimal: {0}, hex: {0:X}, binary: {0:b}"</span>.<span style="color: #FF6400;">format</span>(number)
-</pre>
-</div>
-
-<pre class="example">
-'decimal: 123, hex: 7B, binary: 1111011'
-</pre>
 
 </section>
 <section>
 <p>
-Template libraries
+Templating libraries
 </p>
 
-<ul class="org-ul">
-<li>Jinja2 is a modern and designer friendly templating language for Python, modelled after Django's templates. It is fast, widely used and secure with the optional sandboxed template execution environment:
-</li>
-</ul>
 <div class="org-src-container">
 
 <pre class="src src-html">&lt;<span style="color: #ff1493;">title</span>&gt;<span style="font-weight: bold;">{% block title %}{% endblock %}</span>&lt;/<span style="color: #ff1493;">title</span>&gt;
@@ -545,7 +525,7 @@ Template libraries
 </div>
 
 <ul class="org-ul">
-<li><a href="http://jinja.pocoo.org/docs/">http://jinja.pocoo.org/docs/</a>
+<li>Jinja2 <a href="http://jinja.pocoo.org/docs/">http://jinja.pocoo.org/docs/</a>
 </li>
 </ul>
 
@@ -586,7 +566,6 @@ The year is MMXIV
 </li>
 </ul>
 </section>
-
 </section>
 <section>
 <section id="sec-4" >
@@ -600,11 +579,6 @@ The year is MMXIV
 Produce the number 2014 without any numbers in your source code
 </p>
 
-<ul class="org-ul">
-<li>from <a href="http://codegolf.stackexchange.com/questions/17005/produce-the-number-2014-without-any-numbers-in-your-source-code">http://codegolf.stackexchange.com/questions/17005/produce-the-number-2014-without-any-numbers-in-your-source-code</a>
-</li>
-</ul>
-
 <div class="org-src-container">
 
 <pre class="src src-python"><span style="color: #FF6400;">sum</span>(<span style="color: #FF6400;">ord</span>(c) <span style="color: #FBDE2D;">for</span> c <span style="color: #FBDE2D;">in</span> <span style="color: #61CE3C;">'Happy new year to you!'</span>)
@@ -616,7 +590,7 @@ Produce the number 2014 without any numbers in your source code
 </pre>
 
 <ul class="org-ul">
-<li>see also chr() (or unichr()) which is the inverse of ord().
+<li>see also <code>chr()</code> (or <code>unichr()</code>) which is the inverse of <code>ord()</code>.
 </li>
 </ul>
 </section>
@@ -624,21 +598,33 @@ Produce the number 2014 without any numbers in your source code
 
 <h3>Unicode</h3>
 <ul class="org-ul">
-<li>110,000 characters and symbols are defined for about 100 written scripts &amp; about 50 different encodings.
+<li>110,000 characters and symbols are defined for about 100 written scripts.
 </li>
 
-<li>Python 2: str are byte arrays
+<li>Python 2:
 <ul class="org-ul">
-<li>used for both 8 bit strings and binary data
+<li><code>str</code> objects represent 8-bit text and binary data
+</li>
+<li><code>Unicode</code> object
 </li>
 </ul>
 </li>
-<li>Python 2: Unicode object
-</li>
 
-<li>Python 3: all strings are Unicode strings.
+<li>Python 3:
+<ul class="org-ul">
+<li><code>str</code> object for Unicode text and 8-bit text
 </li>
-<li>Python 3: also has a bytes type for binary data.
+<li><code>bytes</code> type for binary data
+</li>
+</ul>
+</li>
+</ul>
+
+</section>
+<section>
+<ul class="org-ul">
+<li>Python 2.6+ and 3 have a <code>bytearray</code> type (mutable version of
+bytes)
 </li>
 
 <li>Practical Unicode: How do I stop the pain: <a href="http://nedbatchelder.com/text/unipain.html">http://nedbatchelder.com/text/unipain.html</a>
@@ -651,16 +637,15 @@ Produce the number 2014 without any numbers in your source code
 
 <h3>other</h3>
 <ul class="org-ul">
-<li>more stuff in the string module
+<li>more stuff in the <code>string</code> module
 </li>
-<li>json &amp; xml parsers
+<li><code>json</code> &amp; <code>xml</code> modules
 </li>
-<li>StringIO module use strings as file objects
+<li><code>StringIO</code> module use strings as <code>file</code> objects
 </li>
-<li>struct module for binary IO
+<li><code>struct</code> module for binary IO
 </li>
 </ul>
-
 
 </section>
 <section>
